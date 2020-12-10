@@ -1,13 +1,16 @@
+import { useState } from "react"
 import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker';
 import "../App.css"
-import data from '@iconify/icons-mdi/fire-alert';
+import LocationInfoBox from './LocationInfoBox';
 
 const Map = ({ center, zoom, eventData }) => {
 
+    const [locationInfo, setLocationInfo] = useState(null)
+
     const marker = eventData.map(data => {
         if (data.categories[0].id === 8) {
-            return <LocationMarker lat={data.geometries[0].coordinates[1]} lng={data.geometries[0].coordinates[0]} />
+            return <LocationMarker lat={data.geometries[0].coordinates[1]} lng={data.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: data.id, title: data.title })} />
 
         }
         return null
@@ -22,6 +25,7 @@ const Map = ({ center, zoom, eventData }) => {
             >
                 {marker}
             </GoogleMapReact>
+            {locationInfo && <LocationInfoBox info={locationInfo} />}
         </div>
     )
 }

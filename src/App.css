@@ -1,3 +1,21 @@
+.header {
+    padding: 10px;
+    background-color: firebrick;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.header h1 {
+    font-size: 25px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
 .map {
     width: 100vw;
     height: 100vh;
@@ -7,4 +25,26 @@
 .locationIcon {
     font-size: 2rem;
     color: red;
+}
+
+.locationInfo {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    width: 400px;
+    min-height: 100px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.locationInfo ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.locationInfo li {
+    padding: 5px 0;
 }
