@@ -16,6 +16,12 @@
     text-align: center;
 }
 
+.loader {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+}
+
 .map {
     width: 100vw;
     height: 100vh;

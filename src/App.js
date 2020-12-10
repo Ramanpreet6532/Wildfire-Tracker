@@ -1,6 +1,8 @@
 import './App.css';
 import Map from './components/Map';
 import { useState, useEffect } from 'react'
+import Header from './components/Header';
+import Loader from "../src/components/Loader"
 
 function App() {
 
@@ -23,8 +25,12 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <Map />
+    <div>
+
+      { !loading ? <>
+        <Header />
+        <Map eventData={eventData} />
+      </> : <Loader />}
     </div>
   );
 }
