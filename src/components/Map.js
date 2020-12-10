@@ -1,8 +1,18 @@
 import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker';
 import "../App.css"
+import data from '@iconify/icons-mdi/fire-alert';
 
-const Map = ({ center, zoom }) => {
+const Map = ({ center, zoom, eventData }) => {
+
+    const marker = eventData.map(data => {
+        if (data.categories[0].id === 8) {
+            return <LocationMarker lat={data.geometries[0].coordinates[1]} lng={data.geometries[0].coordinates[0]} />
+
+        }
+        return null
+    })
+
     return (
         <div className="map">
             <GoogleMapReact
@@ -10,7 +20,7 @@ const Map = ({ center, zoom }) => {
                 defaultCenter={center}
                 defaultZoom={zoom}
             >
-                <LocationMarker lat={center.lat} lng={center.lng} />
+                {marker}
             </GoogleMapReact>
         </div>
     )
